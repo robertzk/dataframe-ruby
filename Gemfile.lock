@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    dataframe (0.0.1)
+      activesupport (~> 3.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (3.2.19)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+    i18n (0.6.11)
+    multi_json (1.10.1)
+    rake (10.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dataframe!
+  rake (~> 10)

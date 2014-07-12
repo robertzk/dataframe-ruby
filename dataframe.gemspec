@@ -1,4 +1,4 @@
-require_relative 'lib/dataframe/version'
+require_relative 'lib/data_frame/version'
 
 Gem::Specification.new do |s|
   s.name      = 'dataframe'

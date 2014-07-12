@@ -1,3 +1,3 @@
-module XMLMunger
+class DataFrame
   VERSION = '0.0.1'
 end

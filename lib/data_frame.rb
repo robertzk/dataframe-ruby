@@ -1,5 +1,6 @@
-require_relative 'dataframe/requirements'
+require_relative 'data_frame/requirements'
 
-module DataFrame
+class DataFrame
+  extend ClassMethods
 
 end
