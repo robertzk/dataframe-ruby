@@ -20,7 +20,7 @@ class DataFrame
         add_columns Util::HashTranspose[arg]
       when type[Hash]
         add_columns arg
-      when NilClass
+      when type[NilClass]
       else
         raise TypeError, "%s#new was given a %s but can only take one of: %s" %
           [self.class.name, arg.class.name, allowed_types.map(&:name).join(', ')]
