@@ -1,7 +1,13 @@
 class DataFrame
 
   module ClassMethods
-    alias [] new
+    def self.extended(base)
+      base.class_eval do
+        class << self
+          alias [] new
+        end
+      end
+    end
   end
 
 end

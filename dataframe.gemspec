@@ -1,4 +1,7 @@
-require_relative 'lib/data_frame/version'
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'data_frame/version'
 
 Gem::Specification.new do |s|
   s.name      = 'dataframe'
@@ -12,19 +15,24 @@ Gem::Specification.new do |s|
     "construct"
 
   s.authors   = ["Robert Krzyzanowski"]
-  s.email     = "technoguyrob@gmail.com"
+  s.email     = ["technoguyrob@gmail.com"]
 
   s.license   = "MIT"
   s.homepage  = "https://github.com/robertzk/dataframe-ruby"
 
-  s.files = Dir[
-    'Rakefile', 'README*', 'LICENSE*', '{lib,test}/**/*'
-  ] & `git ls-files -z`.split("\x0")
+  # s.files = Dir[ 'Rakefile', 'README*', 'LICENSE*', '{lib,test}/**/*' ] &
+  s.files = `git ls-files -z`.split("\x0")
 
   s.require_paths = ["lib"]
 
-  s.add_dependency 'activesupport', '~> 3.2'
+  s.add_dependency 'activesupport', '~> 4.1.4'
+  s.add_dependency 'activemodel', '~> 4.1.4'
 
   s.add_development_dependency "rake", "~> 10"
+  s.add_development_dependency "rs"
+  s.add_development_dependency "guard"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "pry-remote"
+  s.add_development_dependency "pry-nav"
 end
 

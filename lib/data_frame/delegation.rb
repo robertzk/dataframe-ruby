@@ -1,4 +1,4 @@
-module DataFrame
+class DataFrame
   module Delegation
 
     
