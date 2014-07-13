@@ -1,5 +1,5 @@
 class DataFrame
-  class Column
+  module Structure
     module Validation
 
       protected
@@ -18,7 +18,6 @@ class DataFrame
       def validate_values_are_of_homogeneous_type
         # TODO: (RK) Check minimal ancestor intersection.
       end
-
     end
   end
 end
