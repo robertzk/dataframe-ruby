@@ -1,3 +1,5 @@
+require 'active_support'
+
 class DataFrame
   module Structure
     include Validation
@@ -5,7 +7,7 @@ class DataFrame
     include Display
 
     def initialize arg
-      @cols = {}
+      @cols = ActiveSupport::OrderedHash.new
 
       case arg
       when self.class
@@ -31,6 +33,10 @@ class DataFrame
     end
 
     private
+
+    def eigenclass
+      class << self; self; end
+    end
 
     def copy_instance_variables_from other
       other.instance_variables.each do |iv|

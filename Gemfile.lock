@@ -2,22 +2,17 @@ PATH
   remote: .
   specs:
     dataframe (0.0.2)
-      activemodel (~> 4.1.4)
       activesupport (~> 4.1.4)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.1.4)
-      activesupport (= 4.1.4)
-      builder (~> 3.1)
     activesupport (4.1.4)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.1.0)
@@ -37,7 +32,7 @@ GEM
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
     method_source (0.8.2)
-    minitest (5.3.4)
+    minitest (5.4.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -54,9 +49,9 @@ GEM
     rs (35)
     slop (3.5.0)
     thor (0.19.1)
-    thread_safe (0.3.3)
+    thread_safe (0.3.4)
     timers (1.1.0)
-    tzinfo (1.1.0)
+    tzinfo (1.2.1)
       thread_safe (~> 0.1)
 
 PLATFORMS

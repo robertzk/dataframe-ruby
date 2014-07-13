@@ -1,4 +1,4 @@
-%w(column structure).each { |dir| 
+%w(column structure util).each { |dir| 
   Dir[File.join(File.dirname(__FILE__), dir, '*.rb')].each {|file| require file }
 }
 
