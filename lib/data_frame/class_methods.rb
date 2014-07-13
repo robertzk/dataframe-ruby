@@ -5,6 +5,7 @@ class DataFrame
       base.class_eval do
         class << self
           alias [] new
+
         end
       end
     end

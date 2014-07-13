@@ -4,18 +4,26 @@ class DataFrame
   module Structure
     include Validation
     include Columns
+    include Enumeration
+    include Subsetting
     include Display
 
-    def initialize arg
+    def initialize arg = nil
       @cols = ActiveSupport::OrderedHash.new
 
+      allowed_types = []
+      type = ->(klass) { (allowed_types << klass).last }
       case arg
-      when self.class
+      when type[self.class]
         copy_instance_variables_from other
-      when Array
+      when type[Array]
         add_columns Util::HashTranspose[arg]
-      when Hash
+      when type[Hash]
         add_columns arg
+      when NilClass
+      else
+        raise TypeError, "%s#new was given a %s but can only take one of: %s" %
+          [self.class.name, arg.class.name, allowed_types.map(&:name).join(', ')]
       end
     end
 
@@ -43,11 +51,16 @@ class DataFrame
         conditional_dup = ->(obj) do
           can_duplicate   = obj.respond_to?(:dup)
           can_duplicate &&= obj.respond_to?(:duplicable?) ? obj.duplicable? : true
-          can_duplicate ? obj.dup : obj
+          can_duplicate ? obj.dup : obj rescue obj
         end
 
+        # TODO: (RK) This totally fails for hashes.
         instance_variable_set iv,
-          iv.respond_to?(:collect) ? iv.collect(&conditional_dup) : iv.dup
+          if iv.respond_to?(:collect)
+            iv.collect(&conditional_dup)
+          else
+            conditional_dup[iv]
+          end
       end
     end
 
