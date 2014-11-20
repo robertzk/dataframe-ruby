@@ -1,4 +1,4 @@
-DataFrame
+R Dataframes - For Ruby!
 ===============
 
 This Ruby gem allows easy manipulation of matrix-like data using a syntax
